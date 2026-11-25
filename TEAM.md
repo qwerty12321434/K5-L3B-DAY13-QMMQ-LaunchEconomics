@@ -15,7 +15,7 @@
 |   1 |    Trần Quang Minh    |  2A202603929    |  tqminhnh04@gmail.com     |        | Chi phí và độ nhạy (A–B) |
 |   2 |     Nguyễn Hải Quang   |  2A202603936    |    quangnh2004@gmail.com   | qwerty12321434 | Phân tích lỗi, gắn nhãn bộ 1 và kiểm số (C) |
 |   3 |    Trần Duy Thành    |   2A202603919   |       |        | Thiết kế pilot và gắn nhãn bộ 2 (D) |
-|   4 |    Lương Đức Anh    |   2A202603931   |       |        | Chỉ số, hồ sơ launch, duyệt chéo và nộp bài (E) |
+|   4 |    Lương Đức Anh    |  2A202603931   |      lda@ldlda.com |  ldlda      | Chỉ số, hồ sơ launch, duyệt chéo và nộp bài (E) |
 
 ## Phân công
 
@@ -68,5 +68,5 @@ Mỗi người ghi phần việc và cập nhật đóng góp, bằng chứng sa
 | Thành viên | Phần việc phụ trách | Đóng góp cụ thể | Bằng chứng |
 | --- | --- | --- | --- |
 | Người 2 | Phân tích lỗi C, bộ nhãn 1 và kiểm chứng A–B | Gắn nhãn 20 ca, đối chiếu hai bộ đạt 19/20 ca trước thảo luận, lập bảng khắc phục 5 ca và kiểm chứng A1, A2, B3, B4. | [Bảng lỗi](report/team/bang_loi.md), [báo cáo cá nhân](report/team/2A202603936_NguyenHaiQuang.md) |
-| Người 3 | Thiết kế pilot D và bộ nhãn 2 | | |
-| Người 4 | Chỉ số E, hồ sơ launch, duyệt chéo và tổng hợp bài nộp | | |
+| Người 3 | Thiết kế pilot D và bộ nhãn 2 | Tính D1, chọn thiết kế ngẫu nhiên theo nhân viên, viết kế hoạch pilot với 3 luật dừng; gắn nhãn độc lập bộ thứ hai. | [Kế hoạch pilot](report/team/pilot_plan.yaml), [code D1](src/lab13.py), [bảng lỗi](report/team/bang_loi.md), [báo cáo cá nhân](report/team/2A202603919_TranDuyThanh.md) |
+| Người 4 | Chỉ số E, hồ sơ launch, duyệt chéo và tổng hợp bài nộp | Tính thử 5 chỉ số từ 1.200 yêu cầu; đặc tả 7 event và cách tính; tổng hợp 2 rủi ro kinh tế, hồ sơ launch và báo cáo nhóm. Phiếu chấm chờ được phân nhóm và nhận bằng chứng. | [Chỉ số](report/team/chi_so.md), [hồ sơ launch](report/team/ho_so_launch_v0.md), [báo cáo nhóm](report/team/group_report.md), [báo cáo cá nhân](report/team/2A202603931_LuongDucAnh.md) |
