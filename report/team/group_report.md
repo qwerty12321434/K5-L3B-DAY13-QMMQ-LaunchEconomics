@@ -20,7 +20,9 @@ Nhóm chia bốn phần: A–B mô hình chi phí và độ nhạy (`bang_chi_ph
 
 Chi phí mỗi việc thành công trong phạm vi `noi_dia` + `hang_nang` là **4.599 đ** khi phân bổ chi phí cố định ở 45.000 yêu cầu/tháng [simulated]. Làm lại và xem lại là hai yếu tố nhạy nhất, lần lượt **+51,8%** và **+40,7%** khi gấp đôi [simulated]. Chạy thử có chỉ số chính **82,8%**, tỉ lệ bỏ qua gợi ý **27,1%** trong các yêu cầu được xem lại và tỉ lệ mở lại **4,25%** [simulated]. Hai bộ nhãn đồng thuận **19/20 ca (95%)**. Pilot đề xuất chia ngẫu nhiên theo nhân viên, 20 người mỗi nhánh, MDE 6 điểm phần trăm và quyết định ngày **2027-01-05**. Đề xuất cuối: **Go có điều kiện**, theo các điều kiện tại `ho_so_launch_v0.md`.
 
-Kết quả duyệt chéo nhóm khác: **chưa có**; cần điền sau khi được phân nhóm và chấm bằng chứng.
+Đặc tả pilot có 9 event có `trace_id`, gồm giao dịch sổ cái để phát hiện hoàn trùng, thời gian xem lại và làm lại thực tế, và kết quả cuối để tính chi phí mỗi việc thành công.
+
+Duyệt chéo **đang chờ giảng viên phân nhóm**. Phiếu chấm và phản hồi hội đồng sẽ được cập nhật sau buổi duyệt.
 
 ## 5. Khó khăn và cách xử lý
 

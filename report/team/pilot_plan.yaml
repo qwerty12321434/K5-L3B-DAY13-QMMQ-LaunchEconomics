@@ -59,8 +59,8 @@ pilot:
     spillover_risk: "Cùng depot có thể chia sẻ gợi ý; chặn quyền trợ lý theo staff_id, log truy cập và rà ca đối chứng dùng trợ lý hằng tuần"
     predeclared: "Chốt phạm vi, seed, chỉ số chính, MDE 6 điểm, cỡ mẫu, luật dừng và ngày quyết định trước 2026-12-01"
   stop_rules:
-    - "NẾU tỉ lệ mở lại 7 ngày của can thiệp cao hơn đối chứng ít nhất 2 điểm phần trăm hoặc vượt 6%, trên cohort đã đủ 7 ngày và mỗi nhánh có ít nhất 100 yêu cầu, TRONG 3 lần kiểm tra hằng ngày liên tiếp, hoặc có ít nhất 1 ca hoàn trùng bất kỳ THÌ Giám đốc vận hành tắt trợ lý trong 30 phút và chuyển ca đang mở cho nhân viên KHÔNG THÌ chưa được tăng rollout khi chưa đủ kiểm tra an toàn"
-    - "NẾU chi phí mỗi việc thành công trong phạm vi vượt 8.000 đ [simulated theo phút hiện tại] TRONG 2 tuần liên tiếp THÌ PM trợ lý hoàn phí dừng mở rộng hang_nang, rà thời gian xem lại và làm lại, trình phương án giảm chi phí KHÔNG THÌ không tăng phạm vi sang loại yêu cầu khác"
+    - "NẾU phát hiện ít nhất 1 khoản hoàn có từ 2 giao dịch đã ghi sổ khác nhau qua refund_ledger_write TRONG bất kỳ thời điểm nào, hoặc tỉ lệ mở lại 7 ngày của can thiệp cao hơn đối chứng ít nhất 2 điểm phần trăm hoặc vượt 6% TRONG 3 lần kiểm tra hằng ngày liên tiếp ở các đợt đã đủ thời gian theo dõi và có ít nhất 100 yêu cầu mỗi nhánh, THÌ Giám đốc vận hành tắt trợ lý trong 30 phút và chuyển ca đang mở cho nhân viên KHÔNG THÌ chưa được tăng rollout khi chưa đủ kiểm tra an toàn"
+    - "NẾU chi phí mỗi việc thành công trong phạm vi vượt 8.000 đ, tính theo tuần nhận yêu cầu đã đủ thời gian theo dõi từ token, tool, số phút xem lại và làm lại thực đo như trong chi_so.md, TRONG 2 tuần liên tiếp THÌ PM trợ lý hoàn phí dừng mở rộng hang_nang, rà chi phí và trình phương án giảm chi phí KHÔNG THÌ chưa tăng rollout khi thiếu dữ liệu đo của những tuần đã đến hạn đánh giá"
     - "NẾU tỉ lệ nhân viên sửa hoặc bỏ gợi ý trong số ca được xem lại vượt 40% TRONG 1 tuần THÌ Trưởng nhóm CSKH phỏng vấn ít nhất 5 nhân viên trong 3 ngày, rà 20 trace và đề xuất sửa KHÔNG THÌ chưa chuyển sang bước rollout tiếp theo"
   interim_looks: "Chỉ kiểm tra an toàn, hoàn trùng, chi phí và mức dùng theo luật dừng; không kết luận chỉ số chính trước khi đủ 20 cụm, 299 yêu cầu/người và 7 ngày theo dõi mở lại"
   rollback: "Giám đốc vận hành tắt quyền trợ lý trong 30 phút; nhân viên CSKH tự xử lý mọi yêu cầu đang mở và kế toán đối soát lệnh hoàn"
@@ -70,4 +70,4 @@ pilot:
     - "Chi phí quoc_te 22.515 đ/việc và tỉ số 1,88 từ A3 [simulated]"
     - "Chi phí noi_dia 2.696 đ, hang_nang 8.221 đ và toàn phạm vi 3.414 đ/việc từ A3-A4 [simulated]"
     - "Tỉ lệ mở lại 51/1.200=4,25% và 39/982=3,97% trong phạm vi từ CSV giả lập"
-    - "Ngưỡng 8.000 đ dựa trên chi phí có thành phần phút simulated; thay bằng phút đo thật từ tuần 1"
+    - "Ngưỡng 8.000 đ được đặt từ mô hình chi phí có thành phần phút simulated; dùng số phút đo thật từ tuần 1 để đánh giá luật dừng"
