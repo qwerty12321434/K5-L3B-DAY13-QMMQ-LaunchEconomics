@@ -5,6 +5,7 @@ Dữ liệu trong hai file CSV là giả lập.
 Bản gốc chưa sửa nằm ở lab13_starter.py.
 """
 import math
+from statistics import NormalDist
 import pandas as pd
 
 # Bảng giá GIẢ ĐỊNH của lab (không phải giá thật của nhà cung cấp nào)
@@ -216,11 +217,77 @@ def bao_cao_ab(runs, reqs):
     return '\n\n'.join(phan) + '\n'
 
 
+# ---------- Nhiệm vụ D1 · Cỡ mẫu và chia cụm ----------
+def co_mau_hai_ti_le(p1, p2, alpha=0.05, power=0.80):
+    """Cỡ mẫu mỗi nhánh khi so hai tỉ lệ độc lập, trước hiệu ứng chia cụm."""
+    if not (0 < p1 < 1 and 0 < p2 < 1 and p1 != p2):
+        raise ValueError('Hai tỉ lệ phải khác nhau và thuộc (0, 1).')
+    if not (0 < alpha < 1 and 0 < power < 1):
+        raise ValueError('alpha và power phải thuộc (0, 1).')
+    z_alpha = NormalDist().inv_cdf(1 - alpha / 2)
+    z_beta = NormalDist().inv_cdf(power)
+    p_trung_binh = (p1 + p2) / 2
+    tu = (z_alpha * math.sqrt(2 * p_trung_binh * (1 - p_trung_binh))
+          + z_beta * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))) ** 2
+    return math.ceil(tu / (p2 - p1) ** 2)
+
+
+def he_so_thiet_ke(m, icc=0.02):
+    """Hệ số thiết kế cho m yêu cầu trong mỗi cụm."""
+    if m < 1 or not 0 <= icc < 1:
+        raise ValueError('m phải dương và ICC phải thuộc [0, 1).')
+    return 1 + (m - 1) * icc
+
+
+def co_mau_hieu_dung(so_cum, m, icc=0.02):
+    return so_cum * m / he_so_thiet_ke(m, icc)
+
+
+def power_hai_ti_le(p1, p2, n_moi_nhom, alpha=0.05):
+    """Xấp xỉ power hai phía theo phân phối chuẩn cho n hiệu dụng mỗi nhánh."""
+    p_trung_binh = (p1 + p2) / 2
+    do_lech_chuan_h0 = math.sqrt(2 * p_trung_binh * (1 - p_trung_binh) / n_moi_nhom)
+    do_lech_chuan_h1 = math.sqrt((p1 * (1 - p1) + p2 * (1 - p2)) / n_moi_nhom)
+    nguong = NormalDist().inv_cdf(1 - alpha / 2) * do_lech_chuan_h0
+    phan_phoi = NormalDist(mu=p2 - p1, sigma=do_lech_chuan_h1)
+    return phan_phoi.cdf(-nguong) + 1 - phan_phoi.cdf(nguong)
+
+
+def bao_cao_d1(reqs):
+    """Tính năm câu D1 và tỉ lệ an toàn để chốt luật dừng pilot."""
+    n5 = co_mau_hai_ti_le(0.70, 0.75)
+    n6 = co_mau_hai_ti_le(0.70, 0.76)
+    de75 = he_so_thiet_ke(75)
+    so_yeu_cau_nhan_vien = math.ceil(n5 * de75)
+    so_nhan_vien_nhom = math.ceil(so_yeu_cau_nhan_vien / 75)
+    m6 = 1
+    while co_mau_hieu_dung(20, m6) < n6:
+        m6 += 1
+    pham_vi = reqs[reqs['loai'].isin(['noi_dia', 'hang_nang'])]
+    an_toan_chung = reqs['mo_lai_trong_7_ngay'].eq(1).mean()
+    an_toan_pham_vi = pham_vi['mo_lai_trong_7_ngay'].eq(1).mean()
+    return ('\n## D1 · Cỡ mẫu và chỉ số an toàn\n'
+            f'a) Chia theo yêu cầu, 0,70 → 0,75: {n5:,} yêu cầu/nhóm.\n'
+            f'b) Theo nhân viên, m=75: DE={de75:.2f}; cần {so_yeu_cau_nhan_vien:,} '
+            f'yêu cầu và {so_nhan_vien_nhom} nhân viên/nhóm, tổng {2 * so_nhan_vien_nhom} > 40.\n'
+            f'c) 20 nhân viên/nhóm: c/ICC=20/0,02={20 / 0.02:,.0f} '
+            f'< {n5:,}; không đủ cho chênh 5 điểm.\n'
+            f'd) 6 depot/nhóm: c/ICC=6/0,02={6 / 0.02:,.0f} '
+            f'< {n5:,}; chỉ có 6 cụm/nhóm.\n'
+            f'e) Chênh 6 điểm: n={n6:,}/nhóm; 20 nhân viên/nhóm cần '
+            f'm={m6} yêu cầu/người, DE={he_so_thiet_ke(m6):.2f}, '
+            f'n hiệu dụng={co_mau_hieu_dung(20, m6):.1f}/nhóm.\n'
+            f'Đánh đổi: nếu tác động chỉ 5 điểm, power tại n hiệu dụng {n6:,} '
+            f'xấp xỉ {power_hai_ti_le(0.70, 0.75, n6):.2f}, dưới 0,80.\n'
+            f'An toàn: mở lại 7 ngày toàn mẫu {an_toan_chung:.2%} '
+            f'({reqs["mo_lai_trong_7_ngay"].eq(1).sum()}/{len(reqs)}); '
+            f'phạm vi noi_dia + hang_nang {an_toan_pham_vi:.2%} '
+            f'({pham_vi["mo_lai_trong_7_ngay"].eq(1).sum()}/{len(pham_vi)}).')
+
+
 if __name__ == '__main__':
     runs = pd.read_csv('logix_runs.csv')
     reqs = pd.read_csv('logix_requests.csv', keep_default_na=False)
     kiem_tra_dap_an_biet_truoc()
     print(bao_cao_ab(runs, reqs))
-    # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
-    #   from statsmodels.stats.proportion import proportion_effectsize
-    #   from statsmodels.stats.power import NormalIndPower
+    print(bao_cao_d1(reqs))
