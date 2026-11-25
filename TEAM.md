@@ -6,7 +6,9 @@
 - Lớp: L3B
 - Repo nhóm: `K5-L3B-DAY13-QMMQ-LaunchEconomics`
 - URL repo: [Repo nhóm trên GitHub](https://github.com/qwerty12321434/K5-L3B-DAY13-QMMQ-LaunchEconomics)
-- Nhánh nộp và commit chốt: Điền khi chốt bản nộp.
+- Nhánh nộp: `main`.
+- Commit đã kiểm tra: `477be2e` (sau khi merge PR #3).
+- Commit nộp cuối: Chờ kết quả duyệt chéo.
 
 ## Thành viên
 
@@ -47,26 +49,11 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 Mỗi người ghi phần việc và cập nhật đóng góp, bằng chứng sau khi hoàn thành. Bằng chứng có thể là file, commit hoặc kết quả kiểm chứng do mình thực hiện.
 
-### Trần Quang Minh — 2A202603929
+### Đóng góp của các thành viên
 
-#### Phần việc phụ trách
-
-- Nhiệm vụ A1–A4: kinh tế chạy lại, mô hình chi phí từ trace, tách theo loại yêu cầu và chi phí cố định.
-- Nhiệm vụ B1–B4: độ nhạy, xếp hạng yếu tố, giới hạn chạy lại và xem lại 100%.
-
-#### Đóng góp cụ thể
-
-- Sử dụng Codex hỗ trợ triển khai phần A–B trong `src/lab13.py` và sinh `report/team/bang_chi_phi.md` từ dữ liệu CSV; ghi nhãn `simulated` cho kết quả dùng phút giả lập.
-- Chạy lại `python lab13.py` trên máy cá nhân; output có ba phép thử A1 đạt và đầy đủ các bảng A–B.
-
-#### Bằng chứng
-
-- [Code A–B](src/lab13.py), [bảng chi phí](report/team/bang_chi_phi.md), [báo cáo cá nhân](report/team/2A202603929_TranQuangMinh.md).
-
-### Đóng góp của các thành viên còn lại
-
-| Thành viên | Phần việc phụ trách | Đóng góp cụ thể | Bằng chứng |
-| --- | --- | --- | --- |
-| Người 2 | Phân tích lỗi C, bộ nhãn 1 và kiểm chứng A–B | Gắn nhãn 20 ca, đối chiếu hai bộ đạt 19/20 ca trước thảo luận, lập bảng khắc phục 5 ca và kiểm chứng A1, A2, B3, B4. | [Bảng lỗi](report/team/bang_loi.md), [báo cáo cá nhân](report/team/2A202603936_NguyenHaiQuang.md) |
-| Người 3 | Thiết kế pilot D và bộ nhãn 2 | Tính D1, chọn thiết kế ngẫu nhiên theo nhân viên, viết kế hoạch pilot với 3 luật dừng; gắn nhãn độc lập bộ thứ hai. | [Kế hoạch pilot](report/team/pilot_plan.yaml), [code D1](src/lab13.py), [bảng lỗi](report/team/bang_loi.md), [báo cáo cá nhân](report/team/2A202603919_TranDuyThanh.md) |
-| Người 4 | Chỉ số E, hồ sơ launch, duyệt chéo và tổng hợp bài nộp | Tính thử 5 chỉ số từ 1.200 yêu cầu; đặc tả 7 event và cách tính; tổng hợp 2 rủi ro kinh tế, hồ sơ launch và báo cáo nhóm. Phiếu chấm chờ được phân nhóm và nhận bằng chứng. | [Chỉ số](report/team/chi_so.md), [hồ sơ launch](report/team/ho_so_launch_v0.md), [báo cáo nhóm](report/team/group_report.md), [báo cáo cá nhân](report/team/2A202603931_LuongDucAnh.md) |
+| Họ tên | MSSV | Phần việc phụ trách | Đóng góp cụ thể | Bằng chứng |
+| --- | --- | --- | --- | --- |
+| Trần Quang Minh | 2A202603929 | A1–A4 và B1–B4, mô hình chi phí và phân tích độ nhạy | Dùng Codex hỗ trợ triển khai mô hình chi phí theo loại yêu cầu, tính chi phí cố định, phân tích giới hạn chạy lại và xem lại 100%. Tạo bảng từ CSV, ghi nhãn `simulated` và chạy lại code trên máy cá nhân. Ba phép thử A1 đều đạt. | [Code A–B](src/lab13.py), [bảng chi phí](report/team/bang_chi_phi.md), [báo cáo cá nhân](report/team/2A202603929_TranQuangMinh.md) |
+| Nguyễn Hải Quang | 2A202603936 | Phân tích lỗi C, bộ nhãn 1 và kiểm chứng A–B | Gắn nhãn 20 ca, đối chiếu hai bộ đạt 19/20 ca trước thảo luận, lập bảng khắc phục 5 ca và kiểm chứng A1, A2, B3, B4. | [Bảng lỗi](report/team/bang_loi.md), [báo cáo cá nhân](report/team/2A202603936_NguyenHaiQuang.md) |
+| Trần Duy Thành | 2A202603919 | Thiết kế pilot D và bộ nhãn 2 | Tính D1, chọn thiết kế ngẫu nhiên theo nhân viên, viết kế hoạch pilot với 3 luật dừng và gắn nhãn độc lập bộ thứ hai. | [Kế hoạch pilot](report/team/pilot_plan.yaml), [code D1](src/lab13.py), [bảng lỗi](report/team/bang_loi.md), [báo cáo cá nhân](report/team/2A202603919_TranDuyThanh.md) |
+| Lương Đức Anh | 2A202603931 | Chỉ số E, hồ sơ launch, duyệt chéo và tổng hợp bài nộp | Tính thử 5 chỉ số từ 1.200 yêu cầu, đặc tả 7 event ban đầu và cách tính, tổng hợp 2 rủi ro kinh tế, hoàn thiện hồ sơ launch và báo cáo nhóm. Phiếu chấm đang chờ giảng viên phân nhóm. | [Chỉ số](report/team/chi_so.md), [hồ sơ launch](report/team/ho_so_launch_v0.md), [báo cáo nhóm](report/team/group_report.md), [báo cáo cá nhân](report/team/2A202603931_LuongDucAnh.md) |

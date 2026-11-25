@@ -14,6 +14,6 @@ Nhóm: QMMQ · Lớp: L3B
 | 6 · Pilot plan | Phân nhóm ngẫu nhiên theo nhân viên **20/nhánh**; MDE **6 điểm %**, **859** yêu cầu hiệu dụng/nhánh; phạm vi `noi_dia` + `hang_nang`; quyết định **2027-01-05** | Xong, có bằng chứng | Giám đốc vận hành LogiX-VN |
 | 7 · Rủi ro kinh tế | Xem lại 100%: **11.743–12.415 đ/việc** tùy phút làm lại giả định; vượt mốc nhân viên ở 12.415 đ [simulated] | Giả lập | Chủ pilot |
 
-Điều kiện: trước **2026-12-01**, kỹ sư tích hợp sổ cái và kế toán kiểm thử chặn hoàn trùng, đối soát xác nhận ghi sổ; Giám đốc vận hành ký xác nhận phân nhóm, event và ngưỡng đo. Giữ pilot ở `noi_dia` + `hang_nang`; áp dụng luật dừng an toàn, chi phí (**>8.000 đ/việc trong 2 tuần**) và mức sửa/bỏ gợi ý (**>40% trong 1 tuần**) theo `pilot_plan.yaml`. Không mở rộng nếu thiếu mẫu hoặc chưa theo dõi đủ 7 ngày.
+Trước **2026-12-01**, kỹ sư tích hợp sổ cái và kế toán kiểm thử chặn hoàn trùng, đối soát event `refund_ledger_write`. Giám đốc vận hành xác nhận phân nhóm, ngưỡng đo và cách ghi số phút xem lại, làm lại thực tế từ tuần 1. Giữ pilot ở `noi_dia` + `hang_nang` và áp dụng luật dừng an toàn, chi phí (**>8.000 đ/việc trong 2 tuần**) và mức sửa/bỏ (**>40% trong 1 tuần**) theo [kế hoạch pilot](pilot_plan.yaml). Chỉ xem xét mở rộng phạm vi sau khi đủ mẫu và đủ 7 ngày theo dõi.
 
 **Đề xuất: Go có điều kiện.**
