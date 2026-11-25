@@ -4,7 +4,8 @@
 
 - Họ tên: TranQuangMinh
 - MSSV: 2A202603929
-- Email: Chưa bổ sung.
+- Email: tqminhhn04@gmail.com
+- GitHub: [MinhTrannnnn](https://github.com/MinhTrannnnn)
 - Vai trong nhóm: Người viết code, phụ trách mô hình chi phí và phân tích độ nhạy (nhiệm vụ A–B).
 
 ## 2. Phần việc phụ trách

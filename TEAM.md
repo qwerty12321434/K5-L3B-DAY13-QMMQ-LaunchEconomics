@@ -14,7 +14,7 @@
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |    Trần Quang Minh    |  2A202603929    |  tqminhnh04@gmail.com     | [MinhTrannnnn](https://github.com/MinhTrannnnn) | Chi phí và độ nhạy (A–B) |
+|   1 |    Trần Quang Minh    |  2A202603929    |  tqminhhn04@gmail.com     | [MinhTrannnnn](https://github.com/MinhTrannnnn) | Chi phí và độ nhạy (A–B) |
 |   2 |     Nguyễn Hải Quang   |  2A202603936    |    quangnh2004@gmail.com   | qwerty12321434 | Phân tích lỗi, gắn nhãn bộ 1 và kiểm số (C) |
 |   3 |    Trần Duy Thành    |   2A202603919   |       |        | Thiết kế pilot và gắn nhãn bộ 2 (D) |
 |   4 |    Lương Đức Anh    |  2A202603931   |      lda@ldlda.com |  ldlda      | Chỉ số, hồ sơ launch, duyệt chéo và nộp bài (E) |
