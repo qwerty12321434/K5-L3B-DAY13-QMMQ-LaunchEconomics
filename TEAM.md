@@ -67,6 +67,6 @@ Mỗi người ghi phần việc và cập nhật đóng góp, bằng chứng sa
 
 | Thành viên | Phần việc phụ trách | Đóng góp cụ thể | Bằng chứng |
 | --- | --- | --- | --- |
-| Người 2 | Phân tích lỗi C, bộ nhãn 1 và kiểm chứng A–B | | |
+| Người 2 | Phân tích lỗi C, bộ nhãn 1 và kiểm chứng A–B | Gắn nhãn 20 ca, đối chiếu hai bộ đạt 19/20 ca trước thảo luận, lập bảng khắc phục 5 ca và kiểm chứng A1, A2, B3, B4. | [Bảng lỗi](report/team/bang_loi.md), [báo cáo cá nhân](report/team/2A202603936_NguyenHaiQuang.md) |
 | Người 3 | Thiết kế pilot D và bộ nhãn 2 | | |
 | Người 4 | Chỉ số E, hồ sơ launch, duyệt chéo và tổng hợp bài nộp | | |
