@@ -18,10 +18,10 @@ Viết "chỉ số trong đợt chạy thử là …", không viết "trợ lý 
 
 | Event | Ai tạo | Thuộc tính chính | Thời điểm |
 | --- | --- | --- | --- |
-| `refund_request_received` | Hệ thống tiếp nhận | `request_id`, `trace_id`, `depot`, `staff_id`, `loai`, `arm` (pilot/đối chứng) | Khi nhận yêu cầu, trước khi phân nhóm |
+| `refund_request_received` | Hệ thống tiếp nhận | `request_id`, `trace_id`, `depot`, `staff_id`, `loai`, `arm` (pilot/đối chứng; lấy từ nhánh đã gán trước cho nhân viên) | Khi nhận yêu cầu, sau khi xác định nhân viên/nhánh và trước khi xử lý |
 | `agent_run_completed` | Agent | `request_id`, `trace_id`, `attempt`, `status`, `tokens_in`, `tokens_out`, `tool_calls` | Sau mỗi lần chạy |
 | `suggestion_shown` | Giao diện CSKH | `request_id`, `trace_id`, `staff_id`, `suggestion_id`, `loai` | Khi gợi ý được hiển thị cho nhân viên |
-| `staff_decision_recorded` | Nhân viên CSKH | `request_id`, `trace_id`, `staff_id`, `decision` (giu/sua/bo), `reviewed` | Khi nhân viên giữ, sửa hoặc bỏ gợi ý; ghi cả trường hợp không xem lại |
+| `staff_decision_recorded` | Giao diện CSKH | `request_id`, `trace_id`, `staff_id`, `decision` (giu/sua/bo/khong_xem), `reviewed` | Với mỗi gợi ý đã hiển thị: khi nhân viên giữ/sửa/bỏ hoặc khi giao diện ghi nhận họ không xem trước khi xử lý yêu cầu |
 | `refund_case_closed` | Hệ thống nghiệp vụ | `request_id`, `trace_id`, `closed_at`, `hours_to_close`, `within_24h` | Khi yêu cầu được đóng |
 | `refund_case_reopened` | Hệ thống nghiệp vụ | `request_id`, `trace_id`, `reopened_at`, `within_7_days`, `reason` | Khi yêu cầu mở lại; phát trong vòng 7 ngày sau đóng |
 | `refund_rework_required` | Nhân viên CSKH | `request_id`, `trace_id`, `reason`, `extra_minutes`, `caused_by_agent` | Khi nhân viên phải sửa hoặc làm lại câu trả lời |
@@ -29,7 +29,7 @@ Viết "chỉ số trong đợt chạy thử là …", không viết "trợ lý 
 **Kiểm tra chéo:** với mỗi chỉ số ở bảng E1, ghi event dùng để tính. Chỉ số nào không tính được từ danh sách event thì chưa đo được.
 
 - Chỉ số chính: `refund_case_closed` (`within_24h`) + `refund_case_reopened` (`within_7_days`), nối theo `request_id`/`trace_id`; mẫu số lấy từ `refund_request_received`.
-- Tỉ lệ bỏ qua gợi ý và tỉ lệ xem lại: `suggestion_shown` + `staff_decision_recorded`; mẫu số là số yêu cầu có gợi ý hiển thị hoặc được xem lại tương ứng.
+- Tỉ lệ bỏ qua gợi ý: `staff_decision_recorded` có `decision` = `sua` hoặc `bo` / số quyết định `giu/sua/bo` (không tính `khong_xem`). Tỉ lệ xem lại: số yêu cầu có `reviewed` = true / số yêu cầu đủ điều kiện trong nhánh pilot từ `refund_request_received`; đối chiếu với `suggestion_shown` để phát hiện gợi ý chưa được hiển thị.
 - Tỉ lệ mở lại: `refund_case_reopened` / `refund_request_received`.
 - Tỉ lệ làm lại: `refund_rework_required` / `refund_request_received`.
 
