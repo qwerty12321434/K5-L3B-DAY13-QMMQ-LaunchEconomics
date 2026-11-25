@@ -4,7 +4,7 @@
 
 - Họ tên: Trần Duy Thành
 - MSSV: 2A202603919
-- Email: ...
+- Email: djdjjdue2@gmail.com
 - Vai trong nhóm: thiết kế thí nghiệm pilot (D) và gắn nhãn bộ thứ hai (C)
 
 ## 2. Phần việc phụ trách
@@ -31,3 +31,6 @@
 
 ## 6. Tự đánh giá
 
+- Đã hoàn thành phần tính cỡ mẫu D1, trả lời D2 và xây dựng kế hoạch pilot chia ngẫu nhiên theo nhân viên, gồm 20 người mỗi nhóm và 3 luật dừng.
+- Điểm cần lưu ý của phương án là 40 nhân viên không đủ cỡ mẫu để phát hiện mức chênh 5 điểm phần trăm với power 0,80. Phương án chọn mức 6 điểm và cần tối thiểu 299 yêu cầu mỗi nhân viên; nếu tác động thật chỉ 5 điểm thì power khoảng 0,64.
+- Nhãn hai bộ trùng 19/20 ca trước thảo luận nên cần thảo luận
